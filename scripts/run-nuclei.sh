@@ -9,7 +9,7 @@ then
         sleep 1
 else
         echo $domain
-        docker run -it --rm -v "$(pwd):/data" nuclei $domain /data/online-subdomains.txt
+        sudo docker run -it --rm -v "$(pwd):/data" nuclei $domain /data/online-subdomains.txt
         notify "Nuclei for $domain - \n $(cat "nuclei-$DOMAIN.txt" | cut -d" " -f1 | sort -u )"
 fi
 cd ..
