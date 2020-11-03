@@ -9,4 +9,6 @@ targets="$1"
 for domain in $(cat $targets);
 do 
     sudo docker run -it -v "$(pwd):/data" --rm subs $domain
+    cd $domain
+    notify "$domain - $(cat count.txt)"
 done
