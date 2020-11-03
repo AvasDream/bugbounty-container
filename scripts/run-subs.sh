@@ -11,4 +11,5 @@ do
     sudo docker run -it -v "$(pwd):/data" --rm subs $domain
     cd $domain
     notify "$domain - $(cat count.txt)"
+    cd ..
 done
