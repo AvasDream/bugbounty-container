@@ -1,0 +1,14 @@
+#!/bin/bash
+for i in $(ls -d */);
+do
+domain=$(echo $i | cut -d "/" -f1)
+cd $i
+if [[ ! -f httpx-$domain.canary ]]
+then
+        continue
+else
+        echo $domain
+        cat httpx-$domain.txt | grep "$1"
+fi
+cd ..
+done
