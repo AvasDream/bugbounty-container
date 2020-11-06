@@ -1,4 +1,9 @@
 #!/bin/bash
+if [ $# -eq 0 ] || [ -z "$1" ] || [ -z "$2" ]
+  then
+    echo "No arguments supplied"
+    echo "Usage: search-nuclei $folder $query"
+fi
 cd "$1"
 for i in $(ls -d */);
 do
