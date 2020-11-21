@@ -9,7 +9,7 @@ DOMAIN="$1"
 inputfile="$2"
 touch /data/nuclei-$DOMAIN.canary
 function nuclei-exec {
-    nuclei -nC -l "$inputfile" -t "$toolsDir"'/nuclei/nuclei-templates/' -timeout 3 -o "/data/nuclei-$DOMAIN.txt" 
+    nuclei -no-color -exclude "$toolsDir"'/nuclei/nuclei-templates/fuzzing/basic-auth-bruteforce.yaml' -c 32 -l "$inputfile" -t "$toolsDir"'/nuclei/nuclei-templates/' -timeout 3 -o "/data/nuclei-$DOMAIN.txt" 
 }
 
 function main {

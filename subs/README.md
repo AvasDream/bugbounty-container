@@ -8,6 +8,8 @@ Run:
 
 `docker run -it -v "$(pwd):/data" --rm subs yahoo.com `
 
+`for i in $(cat targets.txt); do docker run -it --rm -v "$(pwd):/data" subs $i;done;`
+
 ## Helper
 
 Count all uniq domains
