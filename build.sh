@@ -10,5 +10,4 @@ do
     sudo docker build . -t $container_name
     cd ..
 done
-
 sudo docker pull projectdiscovery/naabu
