@@ -4,13 +4,14 @@ for i in $(ls -d */);
 do
 domain=$(echo $i | cut -d "/" -f1)
 cd $i
-mkdir portscan
 current_dir=$(pwd)
-if [[ -f naabu-$domain.canary ]]
+if [[ -d portscan ]]
 then
         echo "Naabu was executed. Skipping $domain"
         sleep 1
 else
+
+        mkdir portscan
         for target in $(cat online-naabu.txt);
         do
                 echo $target
@@ -18,6 +19,5 @@ else
                 notify "Port scan: $target - $(cat "$current_dir/portscan/ports-$target.txt")"
         done
 fi
-touch naabu-$domain.canary
 cd ..
 done
