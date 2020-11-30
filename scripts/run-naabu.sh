@@ -11,7 +11,7 @@ then
         sleep 1
 else
         echo $domain
-        sudo docker run -it --rm projectdiscovery/naabu -host $domain -p- -silent -nC > /portscan/ports-$domain.txt
+        sudo docker run -it --rm projectdiscovery/naabu -host $domain -p - -silent -nC > /portscan/ports-$domain.txt
         notify "Port scan: $domain - $(cat "/portscan/ports-$domain.txt")"
 fi
 touch naabu-$domain.canary
