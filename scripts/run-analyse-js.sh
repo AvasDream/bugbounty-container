@@ -14,8 +14,9 @@ do
                 for target in $(cat online-subdomains.txt | grep https);
                 do
                         echo "Host: $target"
+                        domain=$(echo $target | cut -d "/" -f3)
                         sudo docker run -it --rm -v "$(pwd)/js-analysis:/data" analyse-js $target
-                        notify "JS analysis for: $target - $(cat "$current_dir/js-analysis/*$target*.txt")"
+                        notify "JS analysis for: $target - $(cat "$current_dir/js-analysis/js-analysis-$domain.txt)"
                 done
         fi
         cd ..
