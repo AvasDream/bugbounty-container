@@ -3,6 +3,9 @@
 - Add header to nuclei
 - `run-all.sh`
 - Javascript Container:
+    - Current implementation:
+        - only https files 
+        - no custom regex added (ToDo)
     - getJs https://github.com/003random/getJS
     - Linkfinder https://github.com/GerbenJavado/LinkFinder
     - Secretfinder https://github.com/m4ll0k/SecretFinder 
