@@ -1,7 +1,7 @@
 #!/bin/bash
-
+# Build all container for worker scripts
 sudo docker pull projectdiscovery/naabu
-
+cd container
 for i in $(ls -d */);
 do 
     if [[ $i == "script" ]]; then
