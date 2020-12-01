@@ -1,5 +1,7 @@
 #!/bin/bash
 
+sudo docker pull projectdiscovery/naabu
+
 for i in $(ls -d */);
 do 
     if [[ $i == "script" ]]; then
@@ -10,4 +12,3 @@ do
     sudo docker build . -t $container_name
     cd ..
 done
-sudo docker pull projectdiscovery/naabu
