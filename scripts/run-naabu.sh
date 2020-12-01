@@ -1,5 +1,5 @@
 #!/bin/bash
-set -e
+
 for i in $(ls -d */);
 do
         domain=$(echo $i | cut -d "/" -f1)
