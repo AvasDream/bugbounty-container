@@ -65,7 +65,7 @@ function format-output {
 function main {
     execute-getjs
     # If URLs are in getjs do:
-    if [[ -f "js/js-urls-all.txt" ]]
+    if [[ -s "js/js-urls-all.txt" ]]
     then    
         format-urls 
         execute-linkfinder
