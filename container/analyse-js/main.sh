@@ -64,10 +64,16 @@ function format-output {
 
 function main {
     execute-getjs
-    format-urls 
-    execute-linkfinder
-    execute-secretfinder
-    format-output >> data/js-analysis-$domain.txt
+    # If URLs are in getjs do:
+    if [[ -f "js/js-urls-all.txt" ]]
+    then    
+        format-urls 
+        execute-linkfinder
+        execute-secretfinder
+        format-output >> data/js-analysis-$domain.txt
+    else 
+        echo "No JS Files found" >> data/js-analysis-$domain.txt
+    fi
 }
 
 main
