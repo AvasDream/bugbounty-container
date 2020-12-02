@@ -10,8 +10,29 @@ URL=$1
 domain=$(echo $URL | cut -d "/" -f3)
 function execute-getjs {
     mkdir /js
-    getJS --insecure --nocolors --url $URL --output js/js-urls-all.txt
-    cat js/js-urls-all.txt | grep https > js/js-urls.txt
+    getJS --insecure --nocolors --url $URL --output js/js-urls-all.txt >> /dev/null
+}
+
+function format-urls {
+    for url in $(cat js/js-urls-all.txt)
+    do 
+        if  [[ $url == //* ]];
+        then
+            if  [[ $URL == https://* ]];
+            then
+                true
+                echo https:$url >> js/js-urls.txt
+            else
+                false
+                echo http:$url >> js/js-urls.txt
+            fi
+        elif [[ $url == /* ]];
+        then
+            echo $URL$url >> js/js-urls.txt
+        else 
+            echo $url >> js/js-urls.txt
+        fi
+    done
 }
 
 function execute-linkfinder {
@@ -25,7 +46,7 @@ function execute-secretfinder {
     # Custom exclusion of libraries
     for url in $(cat js/js-urls.txt)
     do
-        python3 secretfinder/SecretFinder.py -i $url -o cli -g 'twitter;facebook;google;jquery;bootstrap;api.google.com'  >> js/secretfinder-results.txt
+        python3 secretfinder/SecretFinder.py -i $url -o cli -g 'twitter;facebook;google;jquery;bootstrap;api.google.com;cdn.'  >> js/secretfinder-results.txt
     done
     
 }
@@ -37,12 +58,13 @@ function format-output {
     cat js/secretfinder-results.txt
     echo -e "\nLinks:"
     cat js/linkfinder-results.txt
-    echo -e "\nJavaScript Files:"
+    echo -e "\nJavaScript Files output:"
     cat js/js-urls-all.txt
 }
 
 function main {
     execute-getjs
+    format-urls 
     execute-linkfinder
     execute-secretfinder
     format-output >> data/js-analysis-$domain.txt
