@@ -5,6 +5,8 @@
 - Javascript Container:
     - Current implementation:
         - only https files 
+        - Only full URLs from getjs are analysed. 
+        - Telegram messages bigger than 4096 are dropped. 
         - no custom regex added (ToDo)
     - getJs https://github.com/003random/getJS
     - Linkfinder https://github.com/GerbenJavado/LinkFinder

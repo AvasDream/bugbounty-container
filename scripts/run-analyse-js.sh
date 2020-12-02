@@ -16,7 +16,13 @@ do
                         echo "Host: $target"
                         domain=$(echo $target | cut -d "/" -f3)
                         sudo docker run -it --rm -v "$(pwd)/js-analysis:/data" analyse-js $target
-                        notify "JS analysis for: $target - $(cat "$current_dir/js-analysis/js-analysis-$domain.txt")"
+                        msg=$(cat "$current_dir/js-analysis/js-analysis-$domain.txt")
+                        msg_size=$(echo "$msg" | wc -c)
+                        if (( msg_size < 4095 )); then
+                                notify "JS analysis for: $target - Message too big"
+                        else
+                                notify "JS analysis for: $target - $msg"
+                        fi
                 done
         fi
         cd ..
