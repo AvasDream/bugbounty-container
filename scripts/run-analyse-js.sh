@@ -19,9 +19,9 @@ do
                         msg=$(cat "$current_dir/js-analysis/js-analysis-$domain.txt")
                         msg_size=$(echo "$msg" | wc -c)
                         if (( msg_size < 4095 )); then
-                                notify "JS analysis for: $target - Message too big"
-                        else
                                 notify "JS analysis for: $target - $msg"
+                        else
+                                notify "JS analysis for: $target - Message too big"
                         fi
                 done
         fi
