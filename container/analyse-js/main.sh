@@ -52,6 +52,7 @@ function execute-secretfinder {
 }
 
 function format-output {
+    echo -e "\nResults $URL\n"
     echo -e "\nJavaScript Files analysed:"
     cat js/js-urls.txt
     echo "Secrets:"

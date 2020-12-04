@@ -5,6 +5,8 @@
 - get-files 
     - script to zip all the js files and then serve them via http
 - Javascript Container:
+    - ToDo:
+        - replace getJS with GoSpider
     - Bugs:
         - If JS file has no Path or http/s at the beginning it is passed along. -> my.file.js
     - Current implementation:
@@ -12,13 +14,13 @@
         - Only full URLs from getjs are analysed. 
         - Telegram messages bigger than 4096 are dropped. 
         - no custom regex added (ToDo)
-    - getJs https://github.com/003random/getJS
-    - Linkfinder https://github.com/GerbenJavado/LinkFinder
+    - getJs https://github.com/003random/getJS 
+    - Linkfinder https://github.com/GerbenJavado/LinkFinder 
     - Secretfinder https://github.com/m4ll0k/SecretFinder 
     - Regex Patterns: 
-        - https://github.com/odomojuli/RegExAPI
-        - https://github.com/l4yton/RegHex
-        - https://security.stackexchange.com/questions/215727/oauth-access-token-api-key-patterns-for-large-web-sites
+        - https://github.com/odomojuli/RegExAPI 
+        - https://github.com/l4yton/RegHex 
+        - https://security.stackexchange.com/questions/215727/oauth-access-token-api-key-patterns-for-large-web-sites 
 
 - Crawler Container
     - Gospider / https://github.com/s0md3v/Photon 
