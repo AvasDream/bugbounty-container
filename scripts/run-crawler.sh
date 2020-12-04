@@ -16,8 +16,9 @@ do
                         echo "Host: $target"
                         domain=$(echo $target | cut -d "/" -f3)
                         cd crawler
-                        docker run -it --rm -v "$(pwd):/data" crawler $target
+                        sudo docker run -it --rm -v "$(pwd):/data" crawler $target
                         notify "Crawler $target - URLs: $(cat $domain-urls.txt | wc -l) - JavaScript: $(cat $domain-javascript.txt | wc -l)- Forms: $(cat $domain-form.txt | wc -l) - Links: $(cat $domain-linkfinder.txt | wc -l)"    
+                        cd ..
                 done
         fi
         cd ..

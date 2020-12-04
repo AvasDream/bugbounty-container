@@ -26,3 +26,6 @@
     - Gospider / https://github.com/s0md3v/Photon 
     - gf https://github.com/tomnomnom/gf
         - gf patterns https://github.com/1ndianl33t/Gf-Patterns 
+
+- Reflected Parameter Container
+    - https://github.com/tomnomnom/hacks/tree/master/kxss
