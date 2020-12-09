@@ -5,7 +5,10 @@
 ## ToDo
 
 - Replace getJS with Gospider 
-
+- Bug:
+    - Executions stops at some domains:
+        - https://cnbj6.cloud.mi.com
+        - https://benteng.e.mi.com 
 ```
 # Install Gospider
 RUN go get -u github.com/jaeles-project/gospider
